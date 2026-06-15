@@ -48,13 +48,24 @@ if 1:
     widgets.append(f"{weekday} {day} {month} {time}")
 
     # NETWORK
+    network_name = None
     try:
-        network_name = check_output(("iwgetid", "-r"), timeout=TIMEOUT).replace("\n".encode(), "".encode()).decode("utf-8")
-        if network_name.isspace():
-            network_name = "Oansluten"
+        output = check_output(("iwgetid", "-r"), timeout=TIMEOUT).replace("\n".encode(), "".encode()).decode("utf-8")
+        if not output.isspace():
+            network_name = output
     except Exception as e:
-        network_name = "Oansluten"
         handle_exc(e)
+    if not network_name:
+        try:
+            output = check_output(("nmcli", "-c", "yes", "connection", "show"), timeout=TIMEOUT)
+            if b"\033[32m" in output:
+                network_name = "Ansluten"
+            else:
+                network_name = "Oansluten"
+        except Exception as e:
+            handle_exc(e)
+    if not network_name:
+        network_name = "?"
     widgets.append(f"Nät: {network_name}")
 
     # BATTERY
