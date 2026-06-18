@@ -7,9 +7,9 @@ source ~/colors.env
 
 # PATH settings:
 
-# add ~/PATH and . to PATH
-PATH=~/PATH:$PATH:.
-PYTHONPATH=/home/jack/Programmering/PATH
+# add to PATH: ~/PATH, ., ~/.cargo/bin
+PATH=~/PATH:$PATH:.:~/.cargo/bin
+PYTHONPATH=/home/jack/Programmering/PYTHONPATH
 
 EDITOR=nvim
 VISUAL=$EDITOR

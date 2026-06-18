@@ -11,6 +11,7 @@ def cmd(command):
 
 simple = (
     (".bashrc", "~"),
+    (".bash_login", "~"),
     (".profile", "~"),
     (".zshrc", "~"),
     (".inputrc", "~"),

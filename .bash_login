@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source ~/.profile
+
+(molnet hello || echo -n "${PS1@P}") & disown
