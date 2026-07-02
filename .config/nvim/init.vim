@@ -139,6 +139,7 @@ nnoremap <silent> K :RnvimrToggle<CR>
 let g:rnvimr_ranger_cmd = ['ranger', '--cmd=set column_ratios 3,4']
 let g:rnvimr_enable_ex = 1
 let g:rnvimr_enable_picker = 1
+let g:rnvimr_edit_cmd = 'drop'
 
 """""""""""""""""""" Various custom stuff
 
