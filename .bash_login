@@ -2,4 +2,4 @@
 
 source ~/.profile
 
-(molnet hello || echo -n "${PS1@P}") & disown
+molnet hello

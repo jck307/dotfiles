@@ -24,8 +24,7 @@ output * mode 1920x1080@165.000Hz
 
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your Wayland session.' -B 'Yes, exit Sway' 'swaymsg exit'"
 
-exec_always --no-startup-id killall swaybg
-exec_always --no-startup-id bash -lic 'swaybg -i `find ~/Pictures/Wallpapers -type f | xargs shuf -n1 -e` -m fill'
+exec_always --no-startup-id bash -c 'killall swaybg; swaybg -i `find ~/Pictures/Wallpapers -type f | xargs shuf -n1 -e` -m fill'
 
 bindsym Print      exec grim ~/Screenshot.png
 bindsym $mod+Print exec grim -g "$(slurp -b '#00000000' -c '#ff0000ff' -w 1)" ~/Screenshot.png
